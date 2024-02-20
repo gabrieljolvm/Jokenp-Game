@@ -1,0 +1,393 @@
+* {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: flex;
+}
+
+#game-screen {
+    width: max-content;
+    height: 880px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8rem;
+    padding-top: 35px;
+    box-sizing: border-box;
+}
+
+#top-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid hsl(217, 16%, 45%);
+    border-radius: 10px;
+    width: 580px;
+    height: 100px;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 10px 20px;
+
+}
+
+ul {
+    list-style: none;
+    height: 100%;
+}
+
+li {
+    font-weight: 700;
+    height: min-content;
+}
+
+#score-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 125px;
+    background: white;
+    border-radius: 10px;
+}
+
+#score-box span:first-child {
+    color: hsl(229, 64%, 46%);
+    letter-spacing: .1rem;
+}
+
+#score-box span:nth-child(2) {
+    color: hsl(229, 25%, 31%, .8);
+    font-size: 3rem;
+}
+
+
+
+/* Fase de Escolha */
+
+#game {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    height: 363px;
+}
+
+.out-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#game .out-circle {
+    position: absolute;
+}
+
+.inner-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: inset 1px 4px 1px 1px rgba(138, 95, 255, 0.164);
+}
+
+
+#scissor {
+    top: -60px;
+    background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    box-shadow: 0 3px 0px 1px hsl(36, 100%, 41%);
+}
+
+#spock {
+    top: 60px;
+    left: -60px;
+    background: linear-gradient(hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+    box-shadow: 0 3px 0px 1px hsl(189, 53%, 41%);
+}
+
+#paper {
+    top: 60px;
+    left: 240px;
+    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    box-shadow: 0 3px 0px 1px hsl(230, 55%, 46%);
+}
+
+#lizard {
+    top: 260px;
+    left: 0px;
+    background: linear-gradient(hsl(261, 73%, 60%), hsl(261, 72%, 63%));
+    box-shadow: 0 3px 0px 1px hsl(261, 48%, 45%);
+}
+
+#rock {
+    top: 260px;
+    left: 190px;
+    background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    box-shadow: 0 3px 0px 1px hsl(349, 66%, 42%);
+}
+
+/* Visualização dos resultados. */
+
+#match {
+    flex-direction: row;
+    width: 720px;
+    height: 340px;
+    justify-content: space-between;
+    color: white;
+    letter-spacing: .3ch;
+    font-weight: 600;
+}
+
+#my-choose, #house-choose {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.chooses {
+    background: rgba(0, 0, 0, 0.15);
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chooses .out-circle {
+    width: 100%;
+    height: 100%;
+}
+
+.chooses .inner-circle {
+    width: 80%;
+    height: 80%;
+    box-shadow: inset 1px 6px 1px 2px rgba(66, 45, 124, 0.164);
+}
+
+.chooses svg {
+    transform: scale(1.3);
+}
+
+#match-result {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+    margin-top: 40px;
+    gap: 10px;
+}
+
+#match-result h1 {
+    font-size: 36px;
+}
+
+#new-game {
+    background: white;
+    color: #182143;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    height: 35px;
+}
+
+.winner {
+    box-shadow: 10px 0px 0px 0px white;
+}
+
+
+/* MODAL - RULES */
+
+#rules-box {
+    display: flex;
+    justify-content: flex-end;
+    width: 960px;
+    height: max-content;
+}
+
+#rules-box button {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 25px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+#rules-box button:hover {
+    background: white;
+    color: #182143;
+    transition: .75s;
+}
+
+#modal-opacity {
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    width: 100vw;
+    height:150vh;
+    z-index: 1;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+}
+
+#modal, #modal>div {
+    animation-name: zoom;
+    animation-duration: 0.6s
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+#modal {
+    width: max-content;
+    background-color: white;
+    border-radius: 5px;
+    padding: 30px;
+    gap: 10px;
+    overflow: auto;
+}
+
+#modal div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#modal-text{
+    font-size: 1.5rem;
+    color: hsl(229, 25%, 31%, .8);
+    font-weight: 700;
+}
+
+#close, #close-mobile {
+    font-size: 2.5rem;
+    font-family: sans-serif;
+    font-weight: 100;
+    color: #E1E4ED;
+    cursor: pointer;
+
+}
+
+#close-mobile{
+    display: none;
+}
+
+@media only screen and (max-width: 1366px) {
+
+}
+
+
+@media screen and (max-width: 800px){
+    #game-screen{
+        width: 800px;
+        gap: 4rem;
+    }
+
+    #top-box{
+        width: 300px;
+        height: 75px ;
+        font-size: .75rem;
+
+    }
+
+    #score-box{
+        width: 80px;
+
+    }
+
+    #score-box span:nth-child(2) {
+        font-size: 2.25rem;
+        
+    }
+    
+    
+    #rules-box{
+        width: 800px;
+        justify-content: center;
+    }
+
+    #pentagram, .out-circle{
+        transform: scale(.75);
+    }
+
+    #scissor{
+        top: -10px;
+    }
+
+    #spock{
+        top: 80px;
+        left: -25px;
+    }
+
+    #paper{
+        top: 80px;
+        left: 230px;
+    }
+
+
+    #lizard {
+        top: 240px;
+        left: 20px;
+    }
+
+    #rock{
+        top: 240px;
+        left: 180px;
+    }
+
+
+    #modal-opacity{
+        background: white;
+    }
+
+    #modal{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 120px;
+        font-size: 4rem;
+    }
+    
+    #close{
+        display: none;
+    }
+    
+    #close-mobile{
+        display: block;
+    }
+
+
+}
